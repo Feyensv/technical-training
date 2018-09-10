@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import api, fields, models
+from odoo import api, exceptions, fields, models
 
 
 class Course(models.Model):
@@ -29,10 +29,11 @@ class Session(models.Model):
     instructor_id = fields.Many2one('openacademy.partner', string="Instructor")
     course_id = fields.Many2one('openacademy.course', ondelete='cascade', string="Course", required=True)
     attendee_ids = fields.Many2many('openacademy.partner', string="Attendees")
+    seats = fields.Integer()
 
-    ###
-    ## Using computed fields
-    ###
+    """
+        Using computed fields
+    """
     taken_seats = fields.Float(compute='_compute_taken_seats', store=True)
 
     @api.depends('seats', 'attendee_ids')
@@ -43,29 +44,29 @@ class Session(models.Model):
             else:
                 session.taken_seats = 100.0 * len(session.attendee_ids) / session.seats
 
-    ###
-    ## using onchange
-    ###
+    """
+        Using onchange
+    """
     @api.onchange('seats', 'attendee_ids')
     def _change_taken_seats(self):
         if self.taken_seats > 100:
             return {'warning': {
-                'title': 'Too many attendees',
+                'title':   'Too many attendees',
                 'message': 'The room has %s available seats and there is %s attendees registered' % (self.seats, len(self.attendee_ids))
             }}
 
-    ###
-    ## using python constrains
-    ###
+    """
+        Using python constraints
+    """
     @api.constrains('seats', 'attendee_ids')
     def _check_taken_seats(self):
         for session in self:
             if session.taken_seats > 100:
-                raise ValidationError('The room has %s available seats and there is %s attendees registered' % (session.seats, len(session.attendee_ids)))
+                raise exceptions.ValidationError('The room has %s available seats and there is %s attendees registered' % (session.seats, len(session.attendee_ids)))
 
-    ###
-    ## using SQL constrains
-    ###
+    """
+        Using SQL constraints
+    """
     _sql_constraints = [
         # possible only if taken_seats is stored
         ('session_full', 'CHECK(taken_seats <= 100)', 'The room is full'),
