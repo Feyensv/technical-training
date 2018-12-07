@@ -21,7 +21,7 @@ In order to see who followed a course, we want to add a smart button on the `cou
 form to see the amount of participants and redirect to the list of participant
 of any `session`.
 
-Also, to accelerate the registration to a session, from the the `res.partner` tree view,
+Also, to accelerate the registration to a session, from the `res.partner` tree view,
 you can select participant and add them in a session in the `more` via a wizard to select
 the correct session.
 
