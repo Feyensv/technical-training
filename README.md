@@ -27,7 +27,7 @@ The archmaesters creates the courses and assign the maester responsible. The mae
 
 The paranoid king sees ennemies everywhere wanting to steal his crown.
 He keeps much information about the state of the realm (economy, army, citizen)
-and while it needs to share some with his advisors, he does not want once to
+and while it needs to share some with his advisors, he does not want one to
 have too much knowledge that could be a threat to his throne.
 
 Consider who should be able to access and/or modify which information and add
