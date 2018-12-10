@@ -18,7 +18,7 @@ Create a small module that depends on the module `sale`. The module should add a
 double validation process on sales orders: the sales user first confirms their
 sales order, then a sales manager double-confirm it. Add an extra possible value
 for the field `state` on model `sale.order`, and modify the buttons on the sales
-order form. The first confirmation put the sales order in your extra state. The
+order form. The first confirmation puts the sales order in your extra state. The
 second confirmation should assign the sales order to the state `sale`.
 
 ### References
