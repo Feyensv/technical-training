@@ -16,7 +16,7 @@ Create awesome reports!
 
 ## Problem 1: Citadel (OpenAcademy)
 
-As much as the aerchmaester love the new system, they still love paper and would like to be able to send some invitation to the students with all the valuable information. Apparently their ravens can handle pdf as long as the postal address is on the top right. It would be nice to have a small invitational and personalized text as well as all the information about the session they are about to follow.
+As much as the archmaester love the new system, they still love paper and would like to be able to send some invitation to the students with all the valuable information. Apparently their ravens can handle pdf as long as the postal address is on the top right. It would be nice to have a small invitational and personalized text as well as all the information about the session they are about to follow.
 
 ### Extra
 
