@@ -129,7 +129,7 @@ class Session(models.Model):
                 # so subtract one second to get on Friday instead
                 start = fields.Datetime.from_string(session.start_date)
                 duration = timedelta(days=session.duration, seconds=-1)
-                session.end_date = start + duration
+                session.end_date = (start + duration).date()
 
     def _set_end_date(self):
         for session in self:

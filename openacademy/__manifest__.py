@@ -17,7 +17,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'mail', 'portal', 'web', 'web_kanban'],
+    'depends': ['base', 'mail', 'portal', 'web'],
 
     # always loaded
     'data': [
